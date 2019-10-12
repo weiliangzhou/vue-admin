@@ -136,12 +136,6 @@ export const asyncRouterMap = [
 
     ]
   },
-
-
-
-
-
-
   {
     path: '/sys',
     component: Layout,
@@ -186,9 +180,6 @@ export const asyncRouterMap = [
 
     ]
   },
-
-
-
   {
     path: '/stat',
     component: Layout,
