@@ -61,12 +61,12 @@ export default {
         limit: 20,
         username: undefined,
         mobile: undefined,
-        sort: 'add_time',
+        sort: 'create_time',
         order: 'desc'
       },
       downloadLoading: false,
       genderDic: ['未知', '男', '女'],
-      levelDic: ['普通用户', 'VIP用户', '高级VIP用户'],
+      levelDic: ['普通用户', '内部员工'],
       statusDic: ['可用', '禁用', '注销']
     }
   },
@@ -93,8 +93,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['用户名', '手机号码', '性别', '生日', '状态']
-        const filterVal = ['username', 'mobile', 'gender', 'birthday', 'status']
+        const tHeader = ['用户名', '手机号码', '性别', '状态']
+        const filterVal = ['username', 'mobile', 'gender', 'status']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '用户信息')
         this.downloadLoading = false
       })

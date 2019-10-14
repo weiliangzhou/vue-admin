@@ -61,7 +61,7 @@ export default {
         page: 1,
         limit: 20,
         name: undefined,
-        sort: 'add_time',
+        sort: 'create_time',
         order: 'desc'
       },
       rules: {
