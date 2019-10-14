@@ -119,7 +119,7 @@ export const asyncRouterMap = [
     alwaysShow: true,
     name: 'activityManage',
     meta: {
-      title: '活动管理',
+      title: '抽奖管理',
       icon: 'chart'
     },
     children: [
@@ -129,7 +129,7 @@ export const asyncRouterMap = [
         name: 'user',
         meta: {
           perms: ['GET /admin/user/list'],
-          title: '活动列表',
+          title: '抽奖列表',
           noCache: true
         }
       }
