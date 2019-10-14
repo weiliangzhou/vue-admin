@@ -27,12 +27,6 @@
 
       <el-table-column align="center" min-width="300px" label="详细地址" prop="addressDetail"/>
 
-<!--      <el-table-column align="center" min-width="80px" label="默认" prop="isDefault">-->
-<!--        <template slot-scope="scope">-->
-<!--          {{ scope.row.isDefault ? '是' : '否' }}-->
-<!--        </template>-->
-<!--      </el-table-column>-->
-
     </el-table>
 
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
