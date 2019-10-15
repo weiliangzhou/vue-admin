@@ -117,16 +117,16 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: 'noredirect',
     alwaysShow: true,
-    name: 'activityManage',
+    name: 'prizeManage',
     meta: {
       title: '抽奖管理',
       icon: 'chart'
     },
     children: [
       {
-        path: 'user',
-        component: () => import('@/views/prize/prize'),
-        name: 'user',
+        path: 'prize',
+        component: () => import('@/views/prize'),
+        name: 'prize',
         meta: {
           perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
           title: '抽奖列表',
