@@ -16,8 +16,6 @@ export function createPrize(data) {
   })
 }
 
-
-
 export function updatePrize(data) {
   return request({
     url: '/prize/update',

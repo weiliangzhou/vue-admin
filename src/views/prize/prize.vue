@@ -80,13 +80,12 @@
         </el-form-item>
 
         <el-form-item label="参与开始时间" prop="startTime">
-            <div class="block">
-              <span class="demonstration">默认</span>
-              <el-date-picker
-                v-model="dataForm.startTime"
-                type="date"
-                placeholder="选择日期">
-              </el-date-picker>
+          <div class="block">
+            <span class="demonstration">默认</span>
+            <el-date-picker
+              v-model="dataForm.startTime"
+              type="date"
+              placeholder="选择日期"/>
           </div>
         </el-form-item>
         <el-form-item label="参与截止时间" prop="endTime">
@@ -95,18 +94,13 @@
             <el-date-picker
               v-model="dataForm.endTime"
               type="date"
-              placeholder="选择日期">
-            </el-date-picker>
+              placeholder="选择日期"/>
           </div>
         </el-form-item>
         <el-form-item label="开奖时间" prop="drawTime">
           <div class="block">
             <span class="demonstration">默认</span>
-            <el-date-picker
-              v-model="dataForm.drawTime"
-              type="date"
-              placeholder="选择日期">
-            </el-date-picker>
+            <el-date-picker v-model="dataForm.drawTime" type="date" placeholder="选择日期" />
           </div>
         </el-form-item>
 

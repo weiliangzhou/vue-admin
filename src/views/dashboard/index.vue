@@ -97,35 +97,34 @@
 </template>
 
 <script>
-    import {info} from '@/api/dashboard'
-    import CountTo from 'vue-count-to'
-
-    export default {
-        components: {
-            CountTo
-        },
-        data() {
-            return {
-                userTotal: 0,
-                goodsTotal: 0,
-                productTotal: 0,
-                orderTotal: 0
-            }
-        },
-        created() {
-            info().then(response => {
-                this.userTotal = response.data.data.userTotal
-                this.goodsTotal = response.data.data.goodsTotal
-                this.productTotal = response.data.data.productTotal
-                this.orderTotal = response.data.data.orderTotal
-            })
-        },
-        methods: {
-            handleSetLineChartData(type) {
-                this.$emit('handleSetLineChartData', type)
-            }
-        }
+import { info } from '@/api/dashboard'
+import CountTo from 'vue-count-to'
+export default {
+  components: {
+    CountTo
+  },
+  data() {
+    return {
+      userTotal: 0,
+      goodsTotal: 0,
+      productTotal: 0,
+      orderTotal: 0
     }
+  },
+  created() {
+    info().then(response => {
+      this.userTotal = response.data.data.userTotal
+      this.goodsTotal = response.data.data.goodsTotal
+      this.productTotal = response.data.data.productTotal
+      this.orderTotal = response.data.data.orderTotal
+    })
+  },
+  methods: {
+    handleSetLineChartData(type) {
+      this.$emit('handleSetLineChartData', type)
+    }
+  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

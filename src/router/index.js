@@ -128,7 +128,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/prize/prize'),
         name: 'user',
         meta: {
-          perms: ['GET /admin/prize/list','POST /admin/prize/add'],
+          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
           title: '抽奖列表',
           noCache: true
         }
