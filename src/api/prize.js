@@ -7,3 +7,21 @@ export function fetchList(query) {
     params: query
   })
 }
+
+export function createPrize(data) {
+  return request({
+    url: '/prize/create',
+    method: 'post',
+    data
+  })
+}
+
+
+
+export function updatePrize(data) {
+  return request({
+    url: '/prize/update',
+    method: 'post',
+    data
+  })
+}
