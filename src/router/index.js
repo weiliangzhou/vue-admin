@@ -125,10 +125,10 @@ export const asyncRouterMap = [
     children: [
       {
         path: 'user',
-        component: () => import('@/views/user/user'),
+        component: () => import('@/views/prize/prize'),
         name: 'user',
         meta: {
-          perms: ['GET /admin/user/list'],
+          perms: ['GET /admin/prize/list'],
           title: '抽奖列表',
           noCache: true
         }
