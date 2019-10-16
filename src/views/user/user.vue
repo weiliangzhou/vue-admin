@@ -5,6 +5,7 @@
     <div class="filter-container">
       <el-input v-model="listQuery.nickname" clearable class="filter-item" style="width: 200px;" placeholder="请输入昵称"/>
       <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
+      <el-button type="primary" class="filter-item" icon="el-icon-message" @click="dialogVisible = true">发送短信</el-button>
       <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button>
     </div>
 
@@ -32,9 +33,27 @@
       </el-table-column>
 
     </el-table>
+    <div>
+      <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    </div>
 
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
-
+    <el-dialog
+      :visible.sync="dialogVisible"
+      title="发送短信"
+      width="30%"
+    >
+      <span>
+        <el-input
+          :rows="4"
+          v-model="textarea"
+          type="textarea"
+          placeholder="请输入内容"/>
+      </span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="empty">清 空</el-button>
+        <el-button type="primary" @click="send">发 送</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -59,6 +78,8 @@ export default {
         order: 'desc'
       },
       downloadLoading: false,
+      dialogVisible: false,
+      textarea: '',
       genderDic: ['未知', '男', '女'],
       levelDic: ['普通用户', '内部员工'],
       stateDic: ['可用', '禁用', '注销']
@@ -72,7 +93,7 @@ export default {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
         this.list = response.data.data.list
-        this.total = response.data.data.total
+        this.total = Number(response.data.data.total)
         this.listLoading = false
       }).catch(() => {
         this.list = []
@@ -92,7 +113,21 @@ export default {
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '用户信息')
         this.downloadLoading = false
       })
+    },
+    empty() {
+      this.textarea = ''
+    },
+    send() {
+      // todo
+      this.dialogVisible = false
     }
   }
 }
 </script>
+<style scoped>
+.app-container /deep/ .el-pagination{
+  display: flex;
+  justify-content: flex-end;
+
+}
+</style>

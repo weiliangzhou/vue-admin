@@ -132,8 +132,29 @@ export const asyncRouterMap = [
           title: '抽奖列表',
           noCache: true
         }
+      },
+      {
+        path: 'prize/add',
+        component: () => import('@/views/prize/add'),
+        name: 'prizeAdd',
+        hidden: true,
+        meta: {
+          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
+          title: '新增',
+          noCache: true
+        }
+      },
+      {
+        path: 'prize/edit',
+        component: () => import('@/views/prize/add'),
+        name: 'prizeEdit',
+        hidden: true,
+        meta: {
+          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
+          title: '修改',
+          noCache: true
+        }
       }
-
     ]
   },
   {
