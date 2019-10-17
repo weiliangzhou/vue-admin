@@ -89,9 +89,9 @@
       width="30%">
       <div style="text-align:center">
         <div>中奖者ID</div>
-        <div>{{ luckList.kid }}</div>
+        <div style="color:#409EFF;padding:20px">{{ luckList.kid }}</div>
         <div>中奖者手机号码</div>
-        <div>{{ luckList.phone }}</div>
+        <div style="color:#409EFF;padding:20px">{{ luckList.phone }}</div>
       </div>
     </el-dialog>
   </div>

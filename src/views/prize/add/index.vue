@@ -79,10 +79,10 @@
         </div>
       </el-form-item>
 
-      <el-form-item label="显示奖品价值" prop="displayState" class="list-item">
+      <el-form-item label="显示奖品状态" prop="displayState" class="list-item">
         <el-radio-group v-model="dataForm.displayState">
-          <el-radio label="0" >下架</el-radio>
-          <el-radio label="1" >上架</el-radio>
+          <el-radio :label="0" >下架</el-radio>
+          <el-radio :label="1" >上架</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="最低参与人数" prop="limitCountMin" class="list-item">
@@ -93,14 +93,15 @@
       </el-form-item>
       <el-form-item label="限制条件" prop="limitType" class="list-item">
         <el-radio-group v-model="dataForm.limitType">
-          <el-radio label="0" >无限制条件</el-radio>
-          <el-radio label="1" >看广告</el-radio>
+          <el-radio :label="0" >无限制条件</el-radio>
+          <el-radio :label="1" >看广告</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="抽奖类型" prop="activityType" class="list-item">
         <el-radio-group v-model="dataForm.activityType">
-          <el-radio label="1" >限时</el-radio>
-          <el-radio label="2" >限时限人</el-radio>
+          <el-radio :label="1" >限人</el-radio>
+          <el-radio :label="1" >限时</el-radio>
+          <el-radio :label="2" >限时限人</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="初始参与人数" prop="playerCountInit" class="list-item">
@@ -144,7 +145,9 @@ export default {
         costPrice: [{ required: true, message: '成本价格不能为空', trigger: 'blur' }],
         imgUrl1: [{ required: true, message: '图片不能为空', trigger: 'blur' }],
         desc: [{ required: true, message: '描述不能为空', trigger: 'blur' }],
-        playerCountInit: [{ required: true, message: '初始参与人数不能为空', trigger: 'blur' }]
+        playerCountInit: [{ required: true, message: '初始参与人数不能为空', trigger: 'blur' }],
+        startTime: [{ required: true, message: '开始时间不能为空', trigger: 'blur' }],
+        endTime: [{ required: true, message: '截止时间不能为空', trigger: 'blur' }]
       }
     }
   },
