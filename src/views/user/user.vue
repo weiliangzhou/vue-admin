@@ -3,19 +3,28 @@
 
     <!-- 查询和其他操作 -->
     <div class="filter-container">
-      <el-input v-model="listQuery.nickname" clearable class="filter-item" style="width: 200px;" placeholder="请输入昵称"/>
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
-      <el-button type="primary" class="filter-item" icon="el-icon-message" @click="dialogVisible = true">发送短信</el-button>
-      <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button>
+      <el-input v-model="listQuery.nickname" clearable style="width: 200px;" placeholder="请输入昵称"/>
+      <el-date-picker
+        v-model="value"
+        :picker-options="pickerOptions"
+        type="datetimerange"
+        value-format="yyyy-MM-dd HH:mm:ss"
+        range-separator="至"
+        start-placeholder="开始日期"
+        end-placeholder="结束日期"
+        align="right"/>
+      <el-button type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
+      <el-button type="primary" icon="el-icon-message" @click="sendSMS">发送短信</el-button>
+      <!-- <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button> -->
     </div>
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column align="center" label="注册时间" prop="createTime"/>
-      <el-table-column align="center" width="100px" label="用户ID" prop="kid" sortable/>
+      <el-table-column width="180" align="center" label="注册时间" prop="createTime" sortable/>
+      <el-table-column align="center" width="180px" label="用户ID" prop="kid"/>
       <el-table-column align="center" label="昵称" prop="nickname"/>
       <el-table-column align="center" label="手机号码" prop="phone"/>
-      <el-table-column align="center" label="性别" prop="gender">
+      <!-- <el-table-column align="center" label="性别" prop="gender">
         <template slot-scope="scope">
           <el-tag >{{ genderDic[scope.row.gender] }}</el-tag>
         </template>
@@ -30,8 +39,12 @@
         <template slot-scope="scope">
           <el-tag>{{ stateDic[scope.row.state] }}</el-tag>
         </template>
+      </el-table-column> -->
+      <el-table-column align="center" label="注册方式">
+        <template slot-scope="scope">
+          <el-tag >{{ registerList[scope.row.registerType] }}</el-tag>
+        </template>
       </el-table-column>
-
     </el-table>
     <div>
       <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
@@ -77,12 +90,41 @@ export default {
         sort: 'create_time',
         order: 'desc'
       },
+      value: [],
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        }]
+      },
       downloadLoading: false,
       dialogVisible: false,
       textarea: '',
       genderDic: ['未知', '男', '女'],
       levelDic: ['普通用户', '内部员工'],
-      stateDic: ['可用', '禁用', '注销']
+      stateDic: ['可用', '禁用', '注销'],
+      registerList: ['', '微信注册', '手机号注册']
     }
   },
   created() {
@@ -101,7 +143,18 @@ export default {
         this.listLoading = false
       })
     },
+    sendSMS() {
+      this.dialogVisible = true
+      this.textarea = ''
+    },
     handleFilter() {
+      if (this.value) {
+        this.listQuery.startTime = this.value[0] || null
+        this.listQuery.endTime = this.value[1] || null
+      } else {
+        this.listQuery.startTime = null
+        this.listQuery.endTime = null
+      }
       this.listQuery.page = 1
       this.getList()
     },

@@ -173,7 +173,6 @@ export default {
       })
     },
     handleFilter() {
-      console.log(this.value)
       if (this.value) {
         this.listQuery.startTime = this.value[0] || null
         this.listQuery.endTime = this.value[1] || null

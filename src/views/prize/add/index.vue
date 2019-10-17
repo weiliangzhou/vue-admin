@@ -99,7 +99,7 @@
       </el-form-item>
       <el-form-item label="抽奖类型" prop="activityType" class="list-item">
         <el-radio-group v-model="dataForm.activityType">
-          <el-radio :label="1" >限人</el-radio>
+          <el-radio :label="0" >限人</el-radio>
           <el-radio :label="1" >限时</el-radio>
           <el-radio :label="2" >限时限人</el-radio>
         </el-radio-group>
@@ -132,11 +132,11 @@ export default {
         startTime: '',
         endTime: '',
         drawTime: '',
-        displayState: '0',
+        displayState: 0,
         limitCountMin: '',
         limitCountMax: '',
-        limitType: '1',
-        activityType: '1',
+        limitType: 1,
+        activityType: 1,
         playerCountInit: ''
       },
       uploadPath: process.env.BASE_API + '/file/upload',

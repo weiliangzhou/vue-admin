@@ -117,6 +117,7 @@ export default {
     return {
       list: null,
       total: 0,
+      uploadPath: '',
       roleOptions: null,
       listLoading: true,
       listQuery: {
