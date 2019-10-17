@@ -1,8 +1,8 @@
 {
-  "name": "litemall-admin",
+  "name": "yd-admin",
   "version": "0.1.0",
-  "description": "litemall-admin basing on vue-element-admin 3.9.3",
-  "author": "linlinjava <linlinjava@163.com>",
+  "description": "二师兄",
+  "author": "二师兄",
   "license": "MIT",
   "private": true,
   "scripts": {
