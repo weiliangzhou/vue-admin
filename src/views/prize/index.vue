@@ -20,9 +20,9 @@
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column align="center" label="奖品名称" width="200" prop="name"/>
-      <el-table-column align="center" label="奖品价值" prop="marketPrice" width="120" sortable/>
-      <el-table-column align="center" label="实际价值" prop="costPrice" width="120" sortable/>
+      <el-table-column align="center" label="奖品名称" width="120" prop="name"/>
+      <el-table-column align="center" label="奖品价值" prop="marketPrice" width="100" />
+      <el-table-column align="center" label="实际价值" prop="costPrice" width="100" />
       <el-table-column align="center" label="参与条件">
         <template slot-scope="scope">
           <span v-if="scope.row.limitType === 1">看广告</span>
@@ -36,8 +36,8 @@
           <span v-if="scope.row.activityType === 0">满人开奖</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="创建时间" width="180" prop="createTime" sortable/>
-      <el-table-column align="center" label="开奖时间" width="180" prop="drawTime" sortable/>
+      <el-table-column align="center" label="创建时间" width="160" prop="createTime" sortable/>
+      <el-table-column align="center" label="开奖时间" width="160" prop="drawTime" sortable/>
       <el-table-column align="center" label="显示状态">
         <template slot-scope="scope">
           <el-tag >{{ showDic[scope.row.displayState] }}</el-tag>
