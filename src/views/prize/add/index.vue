@@ -44,11 +44,11 @@
       <el-form-item label="名称" prop="name" class="list-item">
         <el-input v-model="dataForm.name"/>
       </el-form-item>
-      <el-form-item label="市场价格" prop="marketPrice" class="list-item">
-        <el-input v-model="dataForm.marketPrice"/>
+      <el-form-item label="市场价格" prop="marketPriceDesc" class="list-item">
+        <el-input v-model="dataForm.marketPriceDesc"/>
       </el-form-item>
-      <el-form-item label="成本价格" prop="costPrice" class="list-item">
-        <el-input v-model="dataForm.costPrice"/>
+      <el-form-item label="成本价格" prop="costPriceDesc" class="list-item">
+        <el-input v-model="dataForm.costPriceDesc"/>
       </el-form-item>
 
       <el-form-item label="描述" prop="desc" class="list-item">
@@ -61,6 +61,8 @@
             v-model="dataForm.startTime"
             type="datetime"
             style="width:100%"
+            format="yyyy-MM-dd HH:mm:ss"
+            value-format="yyyy-MM-dd HH:mm:ss"
             placeholder="选择日期"/>
         </div>
       </el-form-item>
@@ -70,12 +72,9 @@
             v-model="dataForm.endTime"
             type="datetime"
             style="width:100%"
+            format="yyyy-MM-dd HH:mm:ss"
+            value-format="yyyy-MM-dd HH:mm:ss"
             placeholder="选择日期"/>
-        </div>
-      </el-form-item>
-      <el-form-item label="开奖时间" prop="drawTime" class="list-item">
-        <div class="block">
-          <el-date-picker v-model="dataForm.drawTime" style="width:100%" type="datetime" placeholder="选择日期" />
         </div>
       </el-form-item>
 
@@ -99,9 +98,7 @@
       </el-form-item>
       <el-form-item label="抽奖类型" prop="activityType" class="list-item">
         <el-radio-group v-model="dataForm.activityType">
-          <el-radio :label="0" >限人</el-radio>
           <el-radio :label="1" >限时</el-radio>
-          <el-radio :label="2" >限时限人</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="初始参与人数" prop="playerCountInit" class="list-item">
@@ -124,7 +121,9 @@ export default {
       dataForm: {
         name: '',
         marketPrice: '',
+        marketPriceDesc: '',
         costPrice: '',
+        costPriceDesc: '',
         imgUrl1: '',
         imgUrl2: '',
         imgUrl3: '',
@@ -142,7 +141,7 @@ export default {
       uploadPath: process.env.BASE_API + '/file/upload',
       rules: {
         name: [{ required: true, message: '名称不能为空', trigger: 'blur' }],
-        costPrice: [{ required: true, message: '成本价格不能为空', trigger: 'blur' }],
+        costPriceDesc: [{ required: true, message: '成本价格不能为空', trigger: 'blur' }],
         imgUrl1: [{ required: true, message: '图片不能为空', trigger: 'blur' }],
         desc: [{ required: true, message: '描述不能为空', trigger: 'blur' }],
         playerCountInit: [{ required: true, message: '初始参与人数不能为空', trigger: 'blur' }],

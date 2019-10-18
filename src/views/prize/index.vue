@@ -21,8 +21,16 @@
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
       <el-table-column align="center" label="奖品名称" width="120" prop="name"/>
-      <el-table-column align="center" label="奖品价值" prop="marketPrice" width="100" />
-      <el-table-column align="center" label="实际价值" prop="costPrice" width="100" />
+      <el-table-column align="center" label="奖品价值" width="100" >
+        <template slot-scope="scope">
+          {{ scope.row.marketPrice/100 }}
+        </template>
+      </el-table-column>
+      <el-table-column align="center" label="实际价值" width="100" >
+        <template slot-scope="scope">
+          {{ scope.row.costPrice/100 }}
+        </template>
+      </el-table-column>
       <el-table-column align="center" label="参与条件">
         <template slot-scope="scope">
           <span v-if="scope.row.limitType === 1">看广告</span>
