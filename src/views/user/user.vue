@@ -3,7 +3,9 @@
 
     <!-- 查询和其他操作 -->
     <div class="filter-container">
-      <el-input v-model="listQuery.nickname" clearable style="width: 200px;" placeholder="请输入昵称"/>
+      <el-input v-model="listQuery.nickname" clearable style="width: 150px;" placeholder="请输入昵称"/>
+      <el-input v-model="listQuery.phone" clearable style="width: 150px;" placeholder="请输入手机号"/>
+      <el-input v-model="listQuery.kid" clearable style="width: 150px;" placeholder="请输入id"/>
       <el-date-picker
         v-model="value"
         :picker-options="pickerOptions"
@@ -20,7 +22,6 @@
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column width="180" align="center" label="注册时间" prop="createTime" sortable/>
       <el-table-column align="center" width="180px" label="用户ID" prop="kid"/>
       <el-table-column align="center" label="昵称" prop="nickname"/>
       <el-table-column align="center" label="手机号码" prop="phone"/>
@@ -45,6 +46,7 @@
           <el-tag >{{ registerList[scope.row.registerType] }}</el-tag>
         </template>
       </el-table-column>
+      <el-table-column width="180" align="center" label="注册时间" prop="createTime" sortable/>
     </el-table>
     <div>
       <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />

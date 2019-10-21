@@ -201,30 +201,30 @@ export const asyncRouterMap = [
 
     ]
   },
-  {
-    path: '/stat',
-    component: Layout,
-    redirect: 'noredirect',
-    alwaysShow: true,
-    name: 'statManage',
-    meta: {
-      title: '统计报表',
-      icon: 'chart'
-    },
-    children: [
-      {
-        path: 'user',
-        component: () => import('@/views/stat/user'),
-        name: 'statUser',
-        meta: {
-          perms: ['GET /admin/stat/user'],
-          title: '用户统计',
-          noCache: true
-        }
-      }
-
-    ]
-  },
+  // {
+  //   path: '/stat',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   alwaysShow: true,
+  //   name: 'statManage',
+  //   meta: {
+  //     title: '统计报表',
+  //     icon: 'chart'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'user',
+  //       component: () => import('@/views/stat/user'),
+  //       name: 'statUser',
+  //       meta: {
+  //         perms: ['GET /admin/stat/user'],
+  //         title: '用户统计',
+  //         noCache: true
+  //       }
+  //     }
+  //
+  //   ]
+  // },
 
   {
     path: '/profile',
