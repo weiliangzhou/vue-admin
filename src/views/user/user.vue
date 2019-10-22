@@ -37,7 +37,7 @@
         </template>
       </el-table-column>
       <el-table-column align="center" label="累计获得奖金" prop="totalProfitAmount"/>
-      <el-table-column align="center" label="累计投入金额项目" prop="totalInvestAmount"/>
+      <el-table-column align="center" label="累计投入金额" prop="totalInvestAmount"/>
       <el-table-column align="center" label="参与总次数" prop="totalCountJoined"/>
       <el-table-column align="center" label="成功打卡次数" prop="totalCountClocked"/>
       <el-table-column align="center" label="注册方式">

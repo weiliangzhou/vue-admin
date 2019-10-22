@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function statUser(query) {
+export function statDKUser(query) {
   return request({
     url: '/stat/user',
     method: 'get',

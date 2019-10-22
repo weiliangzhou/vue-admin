@@ -21,7 +21,18 @@
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">累计参与总人次</div>
-            <count-to :start-val="0" :end-val="totalPeoples" :duration="3200" class="card-panel-num"/>
+            <count-to :start-val="0" :end-val="totalCountJoined" :duration="3200" class="card-panel-num"/>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+        <div class="card-panel" @click="handleSetLineChartData('purchases')">
+          <div class="card-panel-icon-wrapper icon-money">
+            <svg-icon icon-class="peoples" class-name="card-panel-icon"/>
+          </div>
+          <div class="card-panel-description">
+            <div class="card-panel-text">累计打卡总人次</div>
+            <count-to :start-val="0" :end-val="totalCountClocked" :duration="3200" class="card-panel-num"/>
           </div>
         </div>
       </el-col>
@@ -75,7 +86,7 @@
 </template>
 
 <script>
-import { info } from '@/api/dashboard'
+import { statDKUser } from '@/api/stat'
 import CountTo from 'vue-count-to'
 export default {
   components: {
@@ -83,18 +94,24 @@ export default {
   },
   data() {
     return {
-      userTotal: 0,
-      goodsTotal: 0,
-      productTotal: 0,
-      orderTotal: 0
+      totalCountJoined: 0,
+      totalCountClocked: 0,
+      totalJackpotAmount: 0,
+      totalWAQFFundAmount: 0,
+      totalUserCount: 0,
+      todayRegisterCount: 0,
+      todayTakeInCount: 0
     }
   },
   created() {
-    info().then(response => {
-      this.userTotal = response.data.data.userTotal
-      this.goodsTotal = response.data.data.goodsTotal
-      this.productTotal = response.data.data.productTotal
-      this.orderTotal = response.data.data.orderTotal
+    statDKUser().then(response => {
+      this.totalCountJoined = response.data.data.totalCountJoined
+      this.totalCountClocked = response.data.data.totalCountClocked
+      this.totalJackpotAmount = response.data.data.totalJackpotAmount
+      this.totalWAQFFundAmount = response.data.data.totalWAQFFundAmount
+      this.totalUserCount = response.data.data.totalUserCount
+      this.todayRegisterCount = response.data.data.todayRegisterCount
+      this.todayTakeInCount = response.data.data.todayTakeInCount
     })
   },
   methods: {
