@@ -84,7 +84,7 @@ export default {
         order: 'desc'
       },
       dataForm: {
-        id: undefined,
+        kid: undefined,
         name: undefined,
         desc: undefined
       },
@@ -132,7 +132,7 @@ export default {
     },
     resetForm() {
       this.dataForm = {
-        id: undefined,
+        kid: undefined,
         name: undefined,
         desc: undefined
       }
@@ -180,7 +180,7 @@ export default {
           updateRole(this.dataForm)
             .then(() => {
               for (const v of this.list) {
-                if (v.id === this.dataForm.id) {
+                if (v.kid === this.dataForm.kid) {
                   const index = this.list.indexOf(v)
                   this.list.splice(index, 1, this.dataForm)
                   break
@@ -220,8 +220,8 @@ export default {
     },
     handlePermission(row) {
       this.permissionDialogFormVisible = true
-      this.permissionForm.roleId = row.id
-      getPermission({ roleId: row.id })
+      this.permissionForm.roleId = row.kid
+      getPermission({ roleId: row.kid })
         .then(response => {
           this.systemPermissions = response.data.data.systemPermissions
           this.assignedPermissions = response.data.data.assignedPermissions

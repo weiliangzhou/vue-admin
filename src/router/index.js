@@ -94,7 +94,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/user/user'),
         name: 'user',
         meta: {
-          perms: ['GET /admin/user/list'],
+          perms: ['GET /api/admin/user/list'],
           title: '会员管理',
           noCache: true
         }
@@ -104,7 +104,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/user/address'),
         name: 'address',
         meta: {
-          perms: ['GET /admin/address/list'],
+          perms: ['GET /api/admin/address/list'],
           title: '收货地址',
           noCache: true
         }
@@ -128,7 +128,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/prize'),
         name: 'prize',
         meta: {
-          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
+          perms: ['GET /api/admin/prize/list', 'POST /api/admin/prize/add'],
           title: '抽奖列表',
           noCache: true
         }
@@ -139,7 +139,7 @@ export const asyncRouterMap = [
         name: 'prizeAdd',
         hidden: true,
         meta: {
-          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
+          perms: ['GET /api/admin/prize/list', 'POST /api/admin/prize/add'],
           title: '新增',
           noCache: true
         }
@@ -150,7 +150,7 @@ export const asyncRouterMap = [
         name: 'prizeEdit',
         hidden: true,
         meta: {
-          perms: ['GET /admin/prize/list', 'POST /admin/prize/add'],
+          perms: ['GET /api/admin/prize/list', 'POST /api/admin/prize/add'],
           title: '修改',
           noCache: true
         }
@@ -173,7 +173,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/sys/admin'),
         name: 'admin',
         meta: {
-          perms: ['GET /admin/admin/list', 'POST /admin/admin/create', 'POST /admin/admin/update', 'POST /admin/admin/delete'],
+          perms: ['GET /api/admin/admin/list', 'POST /api/admin/admin/create', 'POST /api/admin/admin/update', 'POST /api/admin/admin/delete'],
           title: '管理员',
           noCache: true
         }
@@ -183,7 +183,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/sys/log'),
         name: 'log',
         meta: {
-          perms: ['GET /admin/log/list'],
+          perms: ['GET /api/admin/log/list'],
           title: '操作日志',
           noCache: true
         }
@@ -193,7 +193,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/sys/role'),
         name: 'role',
         meta: {
-          perms: ['GET /admin/role/list', 'POST /admin/role/create', 'POST /admin/role/update', 'POST /admin/role/delete', 'GET /admin/role/permissions', 'POST /admin/role/permissions'],
+          perms: ['GET /api/admin/role/list', 'POST /api/admin/role/create', 'POST /api/admin/role/update', 'POST /api/admin/role/delete', 'GET /api/admin/role/permissions', 'POST /api/admin/role/permissions'],
           title: '角色管理',
           noCache: true
         }
@@ -208,17 +208,27 @@ export const asyncRouterMap = [
     alwaysShow: true,
     name: 'statManage',
     meta: {
-      title: '统计管理',
+      title: '打卡管理',
       icon: 'chart'
     },
     children: [
       {
-        path: 'clockin',
-        component: () => import('@/views/clockin/index'),
-        name: 'statclockin',
+        path: 'clockinuser',
+        component: () => import('@/views/clockin/user'),
+        name: 'clockinuser',
         meta: {
-          perms: ['GET /admin/clockin/total'],
-          title: '打卡用户统计',
+          perms: ['GET /api/admin/clockin/user/list'],
+          title: '用户列表',
+          noCache: true
+        }
+      },
+      {
+        path: 'clockuserinfo',
+        component: () => import('@/views/clockin/index'),
+        name: 'clockuserinfo',
+        meta: {
+          perms: ['GET /api/admin/clockin/user/info'],
+          title: '用户统计',
           noCache: true
         }
       }

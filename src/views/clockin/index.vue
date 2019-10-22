@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { statDKUser } from '@/api/stat'
+import { statDKUser } from '@/api/clockin'
 import CountTo from 'vue-count-to'
 export default {
   components: {
