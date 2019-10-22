@@ -29,17 +29,17 @@
       <el-table-column align="center" width="120px" label="用户ID" prop="kid"/>
       <el-table-column align="center" label="昵称" prop="nickname"/>
       <el-table-column align="center" label="手机号码" prop="phone"/>
-      <el-table-column align="center" label="余额" prop="balance"/>
-      <el-table-column align="center" label="冻结余额" prop="amountFrozen"/>
+      <!--      <el-table-column align="center" label="余额" prop="balance"/>-->
+      <!--      <el-table-column align="center" label="冻结余额" prop="amountFrozen"/>-->
       <el-table-column align="center" label="来源渠道" >
         <template slot-scope="scope">
           <el-tag ><span v-if="scope.row.channelId=='dk_10001'">打卡</span><span v-else>抽奖</span></el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="累计获得奖金" prop="totalProfitAmount"/>
-      <el-table-column align="center" label="累计投入金额" prop="totalInvestAmount"/>
-      <el-table-column align="center" label="参与总次数" prop="totalCountJoined"/>
-      <el-table-column align="center" label="成功打卡次数" prop="totalCountClocked"/>
+      <!--      <el-table-column align="center" label="累计获得奖金" prop="totalProfitAmount"/>-->
+      <!--      <el-table-column align="center" label="累计投入金额" prop="totalInvestAmount"/>-->
+      <!--      <el-table-column align="center" label="参与总次数" prop="totalCountJoined"/>-->
+      <!--      <el-table-column align="center" label="成功打卡次数" prop="totalCountClocked"/>-->
       <el-table-column align="center" label="注册方式">
         <template slot-scope="scope">
           <el-tag >{{ registerList[scope.row.registerType] }}</el-tag>
