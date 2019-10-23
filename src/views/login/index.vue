@@ -29,13 +29,13 @@
           <span> 超级管理员用户名：admin123</span>
         </div>
         <div class="tips">
-          <span> 商城管理员用户名: mall123</span>
-          <span> 商城管理员用户名：mall123</span>
+          <span> 打卡管理员用户名: mall123</span>
+          <span> 打卡管理员用户名：mall123</span>
         </div>
-        <div class="tips">
-          <span> 推广管理员用户名: promotion123</span>
-          <span> 推广管理员用户名：promotion123</span>
-        </div>
+        <!--        <div class="tips">-->
+        <!--          <span> 打卡管理员用户名: promotion123</span>-->
+        <!--          <span> 推广管理员用户名：promotion123</span>-->
+        <!--        </div>-->
       </div>
     </el-form>
 

@@ -49,7 +49,7 @@
         <el-form-item label="管理员头像" prop="avatar">
           <el-upload
             :headers="headers"
-            :action="uploadPath"
+            :action="this.$uploadUrl"
             :show-file-list="false"
             :on-success="uploadAvatar"
             class="avatar-uploader"
@@ -117,7 +117,6 @@ export default {
     return {
       list: null,
       total: 0,
-      uploadPath: '',
       roleOptions: null,
       listLoading: true,
       listQuery: {
@@ -201,7 +200,7 @@ export default {
       }
     },
     uploadAvatar: function(response) {
-      this.dataForm.avatar = response.data.url
+      this.dataForm.avatar = response.data
     },
     handleCreate() {
       this.resetForm()

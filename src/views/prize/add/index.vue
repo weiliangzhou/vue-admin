@@ -4,7 +4,7 @@
       <el-form-item label="图片1" prop="imgUrl1" style="width:33%">
         <el-upload
           :headers="headers"
-          :action="uploadPath"
+          :action="this.$uploadUrl"
           :show-file-list="false"
           :on-success="uploadImage1"
           list-type="picture-card"
@@ -17,7 +17,7 @@
       <el-form-item label="图片2" prop="imgUrl2" style="width:33%">
         <el-upload
           :headers="headers"
-          :action="uploadPath"
+          :action="this.$uploadUrl"
           :show-file-list="false"
           :on-success="uploadImage2"
           list-type="picture-card"
@@ -30,7 +30,7 @@
       <el-form-item label="图片3" prop="imgUrl3" style="width:33%">
         <el-upload
           :headers="headers"
-          :action="uploadPath"
+          :action="this.$uploadUrl"
           :show-file-list="false"
           :on-success="uploadImage3"
           list-type="picture-card"
@@ -138,7 +138,6 @@ export default {
         activityType: 1,
         playerCountInit: ''
       },
-      uploadPath: process.env.BASE_API + '/file/upload',
       rules: {
         name: [{ required: true, message: '名称不能为空', trigger: 'blur' }],
         costPriceDesc: [{ required: true, message: '成本价格不能为空', trigger: 'blur' }],

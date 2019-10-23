@@ -37,6 +37,8 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false
 
+Vue.prototype.$uploadUrl = process.env.BASE_API + '/file/upload'
+
 new Vue({
   el: '#app',
   router,
