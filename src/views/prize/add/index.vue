@@ -135,7 +135,7 @@ export default {
         limitCountMin: '',
         limitCountMax: '',
         limitType: 1,
-        activityType: 1,
+        activityType: 0,
         playerCountInit: ''
       },
       rules: {

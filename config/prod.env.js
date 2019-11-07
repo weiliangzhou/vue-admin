@@ -1,5 +1,5 @@
 module.exports = {
 	NODE_ENV: '"production"',
 	ENV_CONFIG: '"prod"',
-    BASE_API: '"http://test.admin.api.cjduck.com/api/admin"'
+    BASE_API: '"http://10.10.10.226:8083/api/admin"'
 }
