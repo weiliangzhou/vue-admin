@@ -98,7 +98,7 @@
       </el-form-item>
       <el-form-item label="抽奖类型" prop="activityType" class="list-item">
         <el-radio-group v-model="dataForm.activityType">
-          <el-radio :label="1" >限时</el-radio>
+          <el-radio :label="0" >限人</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="初始参与人数" prop="playerCountInit" class="list-item">
