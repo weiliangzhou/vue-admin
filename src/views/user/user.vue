@@ -9,6 +9,7 @@
       <el-select v-model="listQuery.channelId" placeholder="请选择渠道">
         <el-option label="打卡" value="dk_10001"/>
         <el-option label="抽奖" value="cj_10001"/>
+        <el-option label="安卓官方" value="cj-azgf-10001"/>
       </el-select>
       <el-date-picker
         v-model="value"
