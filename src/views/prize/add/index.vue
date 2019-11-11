@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="top" class="from-list">
-      <el-form-item label="图片1" prop="imgUrl1" style="width:33%">
+      <el-form-item label="图片1（384*520）" prop="imgUrl1" style="width:33%">
         <el-upload
           :headers="headers"
           :action="this.$uploadUrl"
@@ -14,7 +14,7 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
       </el-form-item>
-      <el-form-item label="图片2" prop="imgUrl2" style="width:33%">
+      <el-form-item label="图片2（384*520）" prop="imgUrl2" style="width:33%">
         <el-upload
           :headers="headers"
           :action="this.$uploadUrl"
@@ -27,7 +27,7 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
       </el-form-item>
-      <el-form-item label="图片3" prop="imgUrl3" style="width:33%">
+      <el-form-item label="图片3（384*520）" prop="imgUrl3" style="width:33%">
         <el-upload
           :headers="headers"
           :action="this.$uploadUrl"
@@ -45,10 +45,10 @@
         <el-input v-model="dataForm.name"/>
       </el-form-item>
       <el-form-item label="市场价格" prop="marketPriceDesc" class="list-item">
-        <el-input v-model="dataForm.marketPriceDesc"/>
+        <el-input v-model="dataForm.marketPriceDesc" oninput = "value=value.replace(/[^\d.]/g,'')" placeholder="" />
       </el-form-item>
       <el-form-item label="成本价格" prop="costPriceDesc" class="list-item">
-        <el-input v-model="dataForm.costPriceDesc"/>
+        <el-input v-model="dataForm.costPriceDesc" oninput = "value=value.replace(/[^\d.]/g,'')" placeholder="" />
       </el-form-item>
 
       <el-form-item label="描述" prop="desc" class="list-item">
